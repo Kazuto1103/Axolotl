@@ -1,0 +1,202 @@
+==================================================
+         NLU MODEL STRESS TEST EXECUTION          
+==================================================
+Loading Vectorizer from: D:\Project\Axolotl\build\vectorizer.pkl
+Loading SVM Intent Classifier from: D:\Project\Axolotl\build\intent_model.pkl
+Loading CRF Slot Model from: D:\Project\Axolotl\build\slot_model.pkl
+All models loaded successfully! Starting inference...
+
+==================================================
+TEST CASE #1: mju dpan 2 mtr ntar jm 3 sor
+  [Normalized]: maju depan 2 meter nanti jam 3 sore
+--------------------------------------------------
+Predicted Intent : SCHEDULED_COMMAND
+Predicted Slots  :
+  - maju            -> B-ACTION
+  - depan           -> B-DIRECTION
+  - 2               -> B-QUANTITY
+  - meter           -> B-UNIT
+  - nanti           -> B-TIME
+  - jam             -> I-TIME
+  - 3               -> I-TIME
+  - sore            -> I-TIME
+==================================================
+==================================================
+TEST CASE #2: geser kekiri dua meter bsk pagi
+  [Normalized]: geser ke kiri dua meter besok pagi
+--------------------------------------------------
+Predicted Intent : SCHEDULED_COMMAND
+Predicted Slots  :
+  - geser           -> B-ACTION
+  - ke              -> B-DIRECTION
+  - kiri            -> I-DIRECTION
+  - dua             -> B-QUANTITY
+  - meter           -> B-UNIT
+  - besok           -> B-TIME
+  - pagi            -> I-TIME
+==================================================
+==================================================
+TEST CASE #3: stop dulu mang
+  [Normalized]: stop dulu
+--------------------------------------------------
+Predicted Intent : STOP_COMMAND
+Predicted Slots  :
+  - stop            -> B-ACTION
+  - dulu            -> I-ACTION
+==================================================
+==================================================
+TEST CASE #4: robot diem dulu dong
+  [Normalized]: robot berhenti dulu
+--------------------------------------------------
+Predicted Intent : STOP_COMMAND
+Predicted Slots  :
+  - robot           -> O
+  - berhenti        -> B-ACTION
+  - dulu            -> I-ACTION
+==================================================
+==================================================
+TEST CASE #5: mundur dikit
+  [Normalized]: mundur sedikit
+--------------------------------------------------
+Predicted Intent : DIRECT_COMMAND
+Predicted Slots  :
+  - mundur          -> B-ACTION
+  - sedikit         -> B-DIRECTION
+==================================================
+==================================================
+TEST CASE #6: puter balik cepat
+  [Normalized]: putar balik cepat
+--------------------------------------------------
+Predicted Intent : DIRECT_COMMAND
+Predicted Slots  :
+  - putar           -> B-ACTION
+  - balik           -> B-DIRECTION
+  - cepat           -> B-MODIFIER
+==================================================
+==================================================
+TEST CASE #7: hari ini cuaca cerah banget ya robot
+  [Normalized]: hari ini cuaca cerah banget ya robot
+--------------------------------------------------
+Predicted Intent : UNKNOWN
+Predicted Slots  :
+  - hari            -> O
+  - ini             -> O
+  - cuaca           -> O
+  - cerah           -> O
+  - banget          -> O
+  - ya              -> O
+  - robot           -> O
+==================================================
+==================================================
+TEST CASE #8: heii tolong gerak kekanan dikit dong
+  [Normalized]: tolong gerak ke kanan sedikit
+--------------------------------------------------
+Predicted Intent : DIRECT_COMMAND
+Predicted Slots  :
+  - tolong          -> O
+  - gerak           -> B-ACTION
+  - ke              -> B-DIRECTION
+  - kanan           -> I-DIRECTION
+  - sedikit         -> O
+==================================================
+==================================================
+TEST CASE #9: mundur 10cm skrg
+  [Normalized]: mundur 10 centimeter sekarang
+--------------------------------------------------
+Predicted Intent : DIRECT_COMMAND
+Predicted Slots  :
+  - mundur          -> B-ACTION
+  - 10              -> B-QUANTITY
+  - centimeter      -> B-UNIT
+  - sekarang        -> O
+==================================================
+==================================================
+TEST CASE #10: batalin dlu semua schedule
+  [Normalized]: batalkan dulu semua schedule
+--------------------------------------------------
+Predicted Intent : STOP_COMMAND
+Predicted Slots  :
+  - batalkan        -> B-ACTION
+  - dulu            -> I-ACTION
+  - semua           -> O
+  - schedule        -> O
+==================================================
+==================================================
+TEST CASE #11: mju dlu lah stgah mtr
+  [Normalized]: maju dulu separuh meter
+--------------------------------------------------
+Predicted Intent : DIRECT_COMMAND
+Predicted Slots  :
+  - maju            -> B-ACTION
+  - dulu            -> B-DIRECTION
+  - separuh         -> B-QUANTITY
+  - meter           -> B-UNIT
+==================================================
+==================================================
+TEST CASE #12: tar mlm jam 8 tolong angkat naik dikit
+  [Normalized]: nanti malam jam 8 tolong angkat naik sedikit
+--------------------------------------------------
+Predicted Intent : SCHEDULED_COMMAND
+Predicted Slots  :
+  - nanti           -> B-TIME
+  - malam           -> I-TIME
+  - jam             -> B-TIME
+  - 8               -> I-TIME
+  - tolong          -> O
+  - angkat          -> B-ACTION
+  - naik            -> B-QUANTITY
+  - sedikit         -> B-UNIT
+==================================================
+==================================================
+TEST CASE #13: tiap 5 mnt belok kekanan 90 deg
+  [Normalized]: tiap 5 menit belok ke kanan 90 derajat
+--------------------------------------------------
+Predicted Intent : REPEATED_COMMAND
+Predicted Slots  :
+  - tiap            -> O
+  - 5               -> B-QUANTITY
+  - menit           -> B-UNIT
+  - belok           -> B-ACTION
+  - ke              -> B-DIRECTION
+  - kanan           -> I-DIRECTION
+  - 90              -> B-QUANTITY
+  - derajat         -> B-UNIT
+==================================================
+==================================================
+TEST CASE #14: setiap jam muter balik 2 kali
+  [Normalized]: setiap jam putar balik 2 kali
+--------------------------------------------------
+Predicted Intent : REPEATED_COMMAND
+Predicted Slots  :
+  - setiap          -> O
+  - jam             -> B-UNIT
+  - putar           -> B-DIRECTION
+  - balik           -> I-DIRECTION
+  - 2               -> B-QUANTITY
+  - kali            -> B-UNIT
+==================================================
+==================================================
+TEST CASE #15: woi robot berhenti secepatnya dong
+  [Normalized]: robot berhenti secepatnya
+--------------------------------------------------
+Predicted Intent : STOP_COMMAND
+Predicted Slots  :
+  - robot           -> O
+  - berhenti        -> O
+  - secepatnya      -> O
+==================================================
+==================================================
+TEST CASE #16: saya mau makan siang sama kawan
+  [Normalized]: saya mau makan siang sama kawan
+--------------------------------------------------
+Predicted Intent : UNKNOWN
+Predicted Slots  :
+  - saya            -> O
+  - mau             -> O
+  - makan           -> O
+  - siang           -> O
+  - sama            -> O
+  - kawan           -> O
+==================================================
+
+Stress testing complete! Output logged to log/stress_test.log.

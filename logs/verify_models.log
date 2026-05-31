@@ -1,0 +1,78 @@
+==================================================
+         VERIFYING SERIALIZED ML MODELS           
+==================================================
+Loading Vectorizer from: D:\Project\Axolotl\build\vectorizer.pkl
+Loading SVM Intent Classifier from: D:\Project\Axolotl\build\intent_model.pkl
+Loading CRF Slot Model from: D:\Project\Axolotl\build\slot_model.pkl
+All models successfully loaded!
+
+==================================================
+               INFERENCE TESTING                  
+==================================================
+
+Test Case 1: "maju ke depan dua meter besok jam 3 sore"
+  [Normalized]: maju ke depan dua meter besok jam 3 sore
+ -> Predicted Intent: SCHEDULED_COMMAND
+ -> Predicted Slots:
+    * maju            => B-ACTION
+    * ke              => B-DIRECTION
+    * depan           => I-DIRECTION
+    * dua             => B-QUANTITY
+    * meter           => B-UNIT
+    * besok           => B-DATE
+    * jam             => B-TIME
+    * 3               => I-TIME
+    * sore            => I-TIME
+
+Test Case 2: "tolong putar balik dengan cepat sekarang juga"
+  [Normalized]: tolong putar balik dengan cepat sekarang juga
+ -> Predicted Intent: DIRECT_COMMAND
+ -> Predicted Slots:
+    * tolong          => O
+    * putar           => B-ACTION
+    * balik           => B-DIRECTION
+    * dengan          => O
+    * cepat           => B-MODIFIER
+    * sekarang        => O
+    * juga            => O
+
+Test Case 3: "batalkan semua gerakan sekarang juga"
+  [Normalized]: batalkan semua gerakan sekarang juga
+ -> Predicted Intent: STOP_COMMAND
+ -> Predicted Slots:
+    * batalkan        => B-ACTION
+    * semua           => O
+    * gerakan         => O
+    * sekarang        => O
+    * juga            => O
+
+Test Case 4: "tolong putar ke kiri sepuluh derajat setiap lima detik"
+  [Normalized]: tolong putar ke kiri sepuluh derajat setiap lima detik
+ -> Predicted Intent: REPEATED_COMMAND
+ -> Predicted Slots:
+    * tolong          => O
+    * putar           => B-ACTION
+    * ke              => B-DIRECTION
+    * kiri            => I-DIRECTION
+    * sepuluh         => B-QUANTITY
+    * derajat         => B-UNIT
+    * setiap          => O
+    * lima            => B-QUANTITY
+    * detik           => B-UNIT
+
+Test Case 5: "hari ini saya ingin memasak makan malam di rumah"
+  [Normalized]: hari ini saya ingin memasak makan malam di rumah
+ -> Predicted Intent: UNKNOWN
+ -> Predicted Slots:
+    * hari            => O
+    * ini             => O
+    * saya            => O
+    * ingin           => O
+    * memasak         => O
+    * makan           => O
+    * malam           => O
+    * di              => O
+    * rumah           => O
+
+==================================================
+Verification execution completed successfully!

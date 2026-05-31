@@ -1,0 +1,61 @@
+==================================================
+        STARTING MODEL TRAINING PIPELINE          
+==================================================
+Loading SVM data from: D:\Project\Axolotl\build\svm_data.pkl
+Loading CRF data from: D:\Project\Axolotl\build\crf_data.pkl
+
+--- Training SVM Intent Classifier ---
+5-Fold Cross-Validation Scores: [0.99545455 0.99545455 0.99318182 0.98863636 0.99090909]
+Mean CV Accuracy: 0.9927 (std: 0.0027)
+Fitting final SVM model on 100% of training data...
+
+--- Training CRF Slot Filler ---
+Fitting CRF with L1=0.1, L2=0.1, max_iterations=100...
+
+==================================================
+               EVALUATION REPORTS                 
+==================================================
+
+[SVM Intent Classifier Report]
+                   precision    recall  f1-score   support
+
+   DIRECT_COMMAND       0.99      1.00      1.00       110
+ REPEATED_COMMAND       1.00      1.00      1.00       110
+SCHEDULED_COMMAND       1.00      0.99      1.00       110
+     STOP_COMMAND       0.99      1.00      1.00       110
+          UNKNOWN       1.00      0.99      1.00       110
+
+         accuracy                           1.00       550
+        macro avg       1.00      1.00      1.00       550
+     weighted avg       1.00      1.00      1.00       550
+
+
+[CRF Slot Filler Report (BIO Entity Tags, excluding 'O')]
+              precision    recall  f1-score   support
+
+    B-ACTION       1.00      1.00      1.00       440
+      B-DATE       1.00      1.00      1.00       101
+ B-DIRECTION       1.00      1.00      1.00       365
+  B-MODIFIER       1.00      1.00      1.00        77
+  B-QUANTITY       1.00      1.00      1.00       260
+      B-TIME       1.00      1.00      1.00       142
+      B-UNIT       1.00      1.00      1.00       299
+    I-ACTION       1.00      1.00      1.00        98
+      I-DATE       1.00      1.00      1.00        39
+ I-DIRECTION       1.00      1.00      1.00       255
+  I-MODIFIER       1.00      1.00      1.00        13
+  I-QUANTITY       1.00      1.00      1.00        26
+      I-TIME       1.00      1.00      1.00       275
+
+   micro avg       1.00      1.00      1.00      2390
+   macro avg       1.00      1.00      1.00      2390
+weighted avg       1.00      1.00      1.00      2390
+
+
+==================================================
+               SERIALIZING MODELS                 
+==================================================
+Successfully saved SVM Intent Classifier -> D:\Project\Axolotl\build\intent_model.pkl
+Successfully saved CRF Slot Filler        -> D:\Project\Axolotl\build\slot_model.pkl
+
+Training and Evaluation pipeline complete!
